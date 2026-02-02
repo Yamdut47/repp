@@ -5,73 +5,217 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For My Favorite Person</title>
     <style>
+        :root {
+            --pink-light: #ffccd5;
+            --pink-med: #ff4d6d;
+            --pink-dark: #590d22;
+            --white: #ffffff;
+        }
+
         body {
             margin: 0;
             padding: 0;
+            background-color: #fff0f3;
+            font-family: 'Arial', sans-serif;
+            color: var(--pink-dark);
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            min-height: 100vh;
-            background: #fff0f3;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #ff4d6d;
-            text-align: center;
             overflow-x: hidden;
         }
+
         .container {
-            padding: 20px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            max-width: 500px;
-            z-index: 1;
+            max-width: 600px;
+            width: 90%;
+            margin: 40px 0;
+            text-align: center;
         }
-        h1 { font-size: 2.5rem; margin-bottom: 10px; }
-        p { font-size: 1.1rem; line-height: 1.6; color: #590d22; }
-        .heart {
-            position: fixed;
-            top: -10vh;
-            font-size: 2rem;
-            user-select: none;
-            z-index: 0;
-            animation: fall linear forwards;
+
+        /* Card Styling */
+        .card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 10px 25px rgba(255, 77, 109, 0.1);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
         }
-        @keyframes fall {
-            to { transform: translateY(110vh) rotate(360deg); }
+
+        .card:hover { transform: translateY(-5px); }
+
+        h1 { font-size: 2.2rem; color: var(--pink-med); margin-bottom: 10px; }
+        h2 { font-size: 1.5rem; color: var(--pink-med); }
+
+        /* Timer Section */
+        #timer {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--pink-med);
+            margin: 10px 0;
+            display: block;
         }
-        button {
-            background: #ff4d6d;
+
+        /* Message Box */
+        #message-display {
+            min-height: 60px;
+            font-style: italic;
+            margin: 20px 0;
+            padding: 15px;
+            border-left: 4px solid var(--pink-med);
+            background: #fff8f9;
+        }
+
+        /* Buttons */
+        .btn {
+            background: var(--pink-med);
             color: white;
             border: none;
             padding: 12px 25px;
-            border-radius: 25px;
+            border-radius: 50px;
             font-size: 1rem;
             cursor: pointer;
-            transition: transform 0.2s;
+            margin: 5px;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 77, 109, 0.3);
         }
-        button:hover { transform: scale(1.1); }
+
+        .btn:hover { background: var(--pink-dark); transform: scale(1.05); }
+
+        /* Grid for Reasons */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .grid-item {
+            background: var(--pink-light);
+            padding: 15px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        /* Floating Animation */
+        .floating {
+            position: fixed;
+            bottom: -50px;
+            font-size: 2rem;
+            animation: moveUp 4s linear forwards;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        @keyframes moveUp {
+            to { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Image Placeholder */
+        .us-photo {
+            width: 100%;
+            height: 250px;
+            background: #eee;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            border: 2px dashed var(--pink-light);
+            overflow: hidden;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>I'm Sorry, Sunshine 🌸</h1>
-        <p>I made this because I was thinking about how much you mean to me. You make my life better in every way, and I hate when things aren't right between us.</p>
-        <p><strong>Click the button to see how much I love you!</strong></p>
-        <button onclick="createHeart()">Click Me</button>
+        <div class="card">
+            <h1>I'm Sorry, My Love ❤️</h1>
+            <p>I built this little corner of the internet just for you. Because you deserve the world, and I want to make things right.</p>
+            <div id="timer">0 Days</div>
+            <p style="font-size: 0.8rem;">Time spent loving you</p>
+        </div>
+
+        <div class="card">
+            <h2>A Message For You</h2>
+            <div id="message-display">Click the button below for a little reminder...</div>
+            <button class="btn" onclick="newMessage()">New Message ✨</button>
+        </div>
+
+        <div class="card">
+            <h2>Our Favorite Moment</h2>
+            <div class="us-photo">
+                <p style="color: #999;">[ Drop a photo of you two here ]</p>
+            </div>
+            <p>I treasure every second with you.</p>
+        </div>
+
+        <div class="card">
+            <h2>Why You're My Everything</h2>
+            <div class="grid">
+                <div class="grid-item">Your Kind Soul 🌟</div>
+                <div class="grid-item">Your Beautiful Eyes 👀</div>
+                <div class="grid-item">How You Support Me 🤝</div>
+                <div class="grid-item">Your Pure Heart ❤️</div>
+                <div class="grid-item">Your Silly Jokes 😂</div>
+                <div class="grid-item">Your Best Hugs 🫂</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Feel Better?</h2>
+            <p>If you're ready to forgive me (or just need a hug), press here:</p>
+            <button class="btn" onclick="sendHugs()">Receive Virtual Hugs 🤗</button>
+        </div>
     </div>
 
     <script>
-        function createHeart() {
-            for(let i=0; i<15; i++) {
-                const heart = document.createElement('div');
-                heart.classList.add('heart');
-                heart.innerText = '❤️';
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDuration = Math.random() * 2 + 3 + 's';
-                heart.style.opacity = Math.random();
-                document.body.appendChild(heart);
-                setTimeout(() => heart.remove(), 5000);
+        // 1. DATE CONFIG: Change this to the date you met or started dating
+        // (Year, Month Index (0-11), Day)
+        const anniversary = new Date(2023, 0, 1); 
+
+        function updateTimer() {
+            const now = new Date();
+            const diff = now - anniversary;
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            document.getElementById('timer').innerText = days + " Days";
+        }
+        setInterval(updateTimer, 1000);
+        updateTimer();
+
+        // 2. MESSAGES: Add your own personal messages here
+        const messages = [
+            "You are the best thing that ever happened to me.",
+            "I'm so sorry for being a knucklehead. I love you.",
+            "My day is 100% better just by seeing your smile.",
+            "I promise to listen more and love you better every day.",
+            "You're my favorite human in the entire universe.",
+            "I miss your laugh more than anything right now."
+        ];
+
+        function newMessage() {
+            const display = document.getElementById('message-display');
+            const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+            display.style.opacity = 0;
+            setTimeout(() => {
+                display.innerText = randomMsg;
+                display.style.opacity = 1;
+            }, 300);
+        }
+
+        // 3. HUG ANIMATION
+        function sendHugs() {
+            const emojis = ['💖', '🌸', '✨', '🧸', '🫂', '💌'];
+            for(let i=0; i < 25; i++) {
+                setTimeout(() => {
+                    const e = document.createElement('div');
+                    e.classList.add('floating');
+                    e.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+                    e.style.left = Math.random() * 100 + "vw";
+                    e.style.animationDuration = (Math.random() * 2 + 2) + "s";
+                    document.body.appendChild(e);
+                    setTimeout(() => e.remove(), 4000);
+                }, i * 100);
             }
         }
     </script>
