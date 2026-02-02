@@ -3,148 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Sabeena ❤️</title>
+    <title>Sabeena's Special Space ❤️</title>
     <style>
-        :root {
-            --pink-med: #ff4d6d;
-            --pink-dark: #590d22;
-            --glass: rgba(255, 255, 255, 0.25);
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-        /* Romantic Moving Background */
         body {
             margin: 0;
             padding: 0;
-            min-height: 100vh;
-            background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #ffdde1, #ee9ca7);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
             font-family: 'Poppins', sans-serif;
-            color: var(--pink-dark);
+            /* Deep Romantic Gradient - Better for text readability */
+            background: linear-gradient(135deg, #450a0a 0%, #991b1b 50%, #450a0a 100%);
+            color: #ffffff;
             display: flex;
             flex-direction: column;
             align-items: center;
+            min-height: 100vh;
             overflow-x: hidden;
         }
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
         .container {
-            max-width: 600px;
             width: 90%;
-            margin: 40px 0;
+            max-width: 500px;
+            padding: 40px 0;
             text-align: center;
-            z-index: 2;
+            z-index: 10;
         }
 
-        /* Glassmorphism Card Style */
+        /* Glass Card with Darker overlay for better text contrast */
         .card {
-            background: var(--glass);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            padding: 35px;
-            border-radius: 30px;
-            box-shadow: 0 10px 32px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-            transition: 0.4s;
-        }
-
-        .card:hover { transform: scale(1.02); }
-
-        h1 { font-size: 2.2rem; color: #fff; text-shadow: 2px 2px 10px rgba(0,0,0,0.1); margin-bottom: 15px; }
-        h2 { font-size: 1.6rem; color: #fff; margin-bottom: 15px; }
-        p { line-height: 1.6; font-size: 1.1rem; }
-
-        /* Timer Section */
-        #timer {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #fff;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
-            margin: 15px 0;
-        }
-
-        /* Message Box */
-        #message-display {
-            min-height: 60px;
-            font-style: italic;
-            margin: 20px 0;
-            padding: 20px;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px;
             border-radius: 20px;
-            background: rgba(255, 255, 255, 0.4);
-            color: var(--pink-dark);
-            font-weight: 500;
-            transition: 0.5s;
+            margin-bottom: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
         }
 
-        /* Romantic Buttons */
+        h1 { color: #ff4d6d; font-size: 2rem; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        p { color: #f8f9fa; line-height: 1.6; font-size: 1rem; }
+
+        #timer {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #ff4d6d;
+            margin: 15px 0;
+            display: block;
+        }
+
         .btn {
-            background: #fff;
-            color: var(--pink-med);
+            background: #ff4d6d;
+            color: white;
             border: none;
-            padding: 15px 35px;
+            padding: 12px 25px;
             border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: bold;
+            font-weight: 600;
             cursor: pointer;
             transition: 0.3s;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            text-transform: uppercase;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
         }
 
-        .btn:hover {
-            background: var(--pink-med);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 77, 109, 0.4);
-        }
+        .btn:hover { background: #ff758f; transform: scale(1.05); }
 
-        /* Grid for Reasons */
         .grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 20px;
+            gap: 10px;
+            margin-top: 15px;
         }
 
         .grid-item {
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        #message-display {
+            font-style: italic;
+            color: #ffd1d1;
             padding: 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 0.95rem;
+            min-height: 50px;
         }
 
-        /* Floating Background Hearts */
-        .bg-heart {
+        /* Animated Floating Background */
+        .bubble {
             position: fixed;
-            top: -10%;
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 1.5rem;
+            bottom: -100px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
             pointer-events: none;
-            animation: floatBackground 12s linear infinite;
+            animation: floatUp 10s infinite linear;
         }
 
-        @keyframes floatBackground {
-            to { transform: translateY(110vh) rotate(360deg); }
+        @keyframes floatUp {
+            to { transform: translateY(-120vh); opacity: 0; }
         }
 
-        .floating {
+        img {
+            max-width: 100%;
+            border-radius: 15px;
+            border: 3px solid rgba(255, 77, 109, 0.3);
+        }
+
+        /* Hug Animation */
+        .hug-emoji {
             position: fixed;
-            bottom: -50px;
-            font-size: 2.5rem;
-            animation: moveUp 4s ease-out forwards;
+            bottom: 0;
+            font-size: 2rem;
+            animation: hugMove 3s forwards;
             pointer-events: none;
-            z-index: 100;
         }
 
-        @keyframes moveUp {
-            to { transform: translateY(-110vh) translateX(30px); opacity: 0; }
+        @keyframes hugMove {
+            to { transform: translateY(-100vh) scale(2); opacity: 0; }
         }
     </style>
 </head>
@@ -152,103 +126,94 @@
 
     <div class="container">
         <div class="card">
-            <h1>I love you, Sabeena ❤️</h1>
-            <p style="color: white; font-weight: 500;">यो इन्टरनेटको सानो संसार मैले तिमीलाई सम्झेर बनाएको हुँ। तिमीले सारा संसारको माया र खुशी पाउनुपर्छ। ❤️</p>
-            <div id="timer">0 Days</div>
-            <p style="font-size: 0.9rem; color: #fff;">तिमीलाई माया गर्दै बिताएको समय ❤️</p>
+            <h1>I Love You, Sabeena ❤️</h1>
+            <p>म तिमीलाई सधैं खुशी देख्न चाहन्छु। यो सानो डिजिटल उपहार मेरो तर्फबाट तिम्रो लागि...</p>
+            <div id="timer">Loading...</div>
+            <p style="font-size: 0.8rem; opacity: 0.8;">हाम्रो मायाको यात्रा जारी छ</p>
         </div>
 
         <div class="card">
-            <h2>A Message For You</h2>
-            <div id="message-display">Click the button below for a little reminder...</div>
-            <button class="btn" onclick="newMessage()">New Message ✨</button>
+            <h2>Meri Sanu 🌸</h2>
+            <img src="pic.png" alt="Sabeena">
+            <p style="margin-top: 10px;">तिमीसँगको हरेक पल मेरो लागि खास छ।</p>
         </div>
 
         <div class="card">
-            <h2>Meri Sanu ❤️</h2>
-            <div style="margin: 15px 0;">
-                <img src="pic.png" alt="Our Memory" style="width: 100%; border-radius: 25px; box-shadow: 0 10px 20px rgba(0,0,0,0.2);">
-            </div>
-            <p style="color: white; font-weight: 500;">💖 म तिमीसँग बिताएको हरेक सेकेन्डलाई बहुमूल्य सम्झन्छु।</p>
+            <h2>Just For You ✨</h2>
+            <div id="message-display">केही मीठो कुरा सुन्न यहाँ थिच्नुहोस्...</div>
+            <button class="btn" onclick="newMessage()">Next Message</button>
         </div>
 
         <div class="card">
-            <h2>Why You're My Everything</h2>
+            <h2>Reasons You're Best</h2>
             <div class="grid">
-                <div class="grid-item">तिम्रो दयालु आत्मा 🌟</div>
-                <div class="grid-item">तिम्रा सुन्दर आँखा 👀</div>
-                <div class="grid-item">तिम्रो साथ र समर्थन 🤝</div>
-                <div class="grid-item">तिम्रो सफा मन ❤️</div>
-                <div class="grid-item">तिम्रा रमाइला जोक्सहरू 😂</div>
-                <div class="grid-item">तिम्रो न्यानो अंगालो 🫂</div>
+                <div class="grid-item">तिम्रो मायालु बानी ❤️</div>
+                <div class="grid-item">तिम्रो सुन्दर मुस्कान 😊</div>
+                <div class="grid-item">तिम्रो साथ र भरोसा 🤝</div>
+                <div class="grid-item">तिम्रो कोमल मन 💖</div>
             </div>
         </div>
 
-        <div class="card" style="background: rgba(255, 77, 109, 0.3);">
-            <h2>Still Sad?</h2>
-            <p style="color: white;">If you need a hug, press here:</p>
-            <button class="btn" onclick="sendHugs()">Receive Virtual Hugs 🤗</button>
+        <div class="card">
+            <h2>Don't be sad, okay?</h2>
+            <p>मबाट केही गल्ती भयो भने माफ गरिदेउ ल? म तिमीलाई धेरै माया गर्छु।</p>
+            <button class="btn" onclick="sendHugs()">Send Virtual Hugs 🤗</button>
         </div>
     </div>
 
     <script>
-        // Set your Anniversary Date (Year, Month Index (0-11), Day)
-        // Note: Oct is index 9
+        // 1. TIMER: Adjust to your date (Year, Month Index (0-11), Day)
         const anniversary = new Date(2025, 9, 15); 
-
+        
         function updateTimer() {
-            const now = new Date();
-            const diff = now - anniversary;
+            const diff = new Date() - anniversary;
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
             document.getElementById('timer').innerText = days + " Days";
         }
         setInterval(updateTimer, 1000);
         updateTimer();
 
+        // 2. MESSAGES
         const messages = [
-            "तिमी बिना सबथोक भएर पनि केही नभएको जस्तो लाग्छ।",
-            "मेरो मुटुको आधा भाग सधैं तिमी सँगै हुन्छ।",
-            "तिमी रिसाउँदा संसार नै रङ्गहीन जस्तो लाग्छ।",
-            "म जे जस्तो भए पनि, मेरो माया तिम्रो लागि सधैं साँचो रहनेछ।",
-            "तिमी मेरो बानी हौ, र म यो बानी कहिल्यै छोड्न चाहन्न।",
-            "मुटुले रोजेको मान्छे तिमी हौ, र सधैं तिमी नै हुनेछौ।"
+            "तिमी मेरो जीवनको सबैभन्दा ठूलो खुशी हौ।",
+            "तिमी मुस्कुराउँदा मेरो संसार उज्यालो हुन्छ।",
+            "तिमी बिना मेरो दिन नै अपूरो लाग्छ।",
+            "सधैं यस्तै साथ दिइरहनु है सानु।",
+            "तिम्रो रिस पनि मलाई प्यारो लाग्छ, तर धेरै बेर नरिसाउनु ल?",
+            "म सधैं तिम्रो साथमा हुनेछु, जे भए पनि।"
         ];
 
         function newMessage() {
             const display = document.getElementById('message-display');
             const randomMsg = messages[Math.floor(Math.random() * messages.length)];
-            display.style.opacity = 0;
-            setTimeout(() => {
-                display.innerText = randomMsg;
-                display.style.opacity = 1;
-            }, 300);
+            display.innerText = randomMsg;
         }
 
-        // Background floating hearts
-        function createBGHeart() {
-            const heart = document.createElement('div');
-            heart.classList.add('bg-heart');
-            heart.innerHTML = '❤️';
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDuration = Math.random() * 5 + 7 + 's';
-            heart.style.opacity = Math.random() * 0.5;
-            document.body.appendChild(heart);
-            setTimeout(() => heart.remove(), 12000);
+        // 3. BACKGROUND BUBBLES
+        function createBubble() {
+            const b = document.createElement('div');
+            b.classList.add('bubble');
+            const size = Math.random() * 40 + 10 + "px";
+            b.style.width = size;
+            b.style.height = size;
+            b.style.left = Math.random() * 100 + "vw";
+            b.style.animationDuration = Math.random() * 5 + 5 + "s";
+            document.body.appendChild(b);
+            setTimeout(() => b.remove(), 10000);
         }
-        setInterval(createBGHeart, 2500);
+        setInterval(createBubble, 1000);
 
+        // 4. HUG ANIMATION
         function sendHugs() {
-            const emojis = ['💖', '🌸', '✨', '🧸', '🫂', '💌'];
-            for(let i=0; i < 25; i++) {
+            for(let i=0; i<15; i++) {
                 setTimeout(() => {
-                    const e = document.createElement('div');
-                    e.classList.add('floating');
-                    e.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-                    e.style.left = Math.random() * 100 + "vw";
-                    e.style.animationDuration = (Math.random() * 2 + 2) + "s";
-                    document.body.appendChild(e);
-                    setTimeout(() => e.remove(), 4000);
-                }, i * 100);
+                    const hug = document.createElement('div');
+                    hug.classList.add('hug-emoji');
+                    hug.innerText = "❤️";
+                    hug.style.left = Math.random() * 100 + "vw";
+                    document.body.appendChild(hug);
+                    setTimeout(() => hug.remove(), 3000);
+                }, i * 200);
             }
         }
     </script>
